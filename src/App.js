@@ -1,7 +1,61 @@
 import logo from './logo.svg';
 import './App.css';
-
+import axios from 'axios';
 function App() {
+  async function apicall1(){
+    try{
+    var config = {
+      method: 'get',
+      url: 'http://localhost:7777/api/user?limit=10&page=1',
+      withCredentials: true, // should be there
+      credentials: 'include',
+    };
+    const response = await axios(config);
+    console.log(response.data);
+  }
+  catch(error){
+    console.log(error);
+  }
+  }
+  async function apicall2(){
+    try{
+    var config = {
+      method: 'post',
+      url: 'http://localhost:7777/api/user/logout',
+      withCredentials: true, // should be there
+      credentials: 'include',
+    }
+    const response = await axios(config);
+    console.log(response.data);
+  }
+  catch(error){
+    console.log(error);
+  }
+  }
+
+  async function apicall () {
+    const data ={
+      "email": "rvce.anjali@gmail.com",
+      "password": "Aksbkcv9267652"
+    };
+    //send req.cookies={token:} http://3.110.123.236:8080
+    var config = {
+      method: 'post',
+      url: 'http://localhost:7777/api/user/login',
+      withCredentials: true, // should be there
+      credentials: 'include',
+      data: data
+    };
+    
+    axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+}
+);
+  };
   return (
     <div className="App">
       <header className="App-header">
@@ -9,14 +63,10 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {/* add button here */}
+        <button onClick={apicall}>Login</button>
+        <button onClick={apicall1}>Display</button>
+        <button onClick={apicall2}>Logout</button>
       </header>
     </div>
   );
