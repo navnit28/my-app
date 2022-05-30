@@ -6,7 +6,7 @@ function App() {
     try{
     var config = {
       method: 'get',
-      url: 'http://localhost:7777/api/user?limit=10&page=1',
+      url: 'https://pinoytravels.live/api/user?limit=10&page=1',
       withCredentials: true, // should be there
       credentials: 'include',
     };
@@ -21,7 +21,7 @@ function App() {
     try{
     var config = {
       method: 'post',
-      url: 'http://localhost:7777/api/user/logout',
+      url: 'https://pinoytravels.live/api/user/logout',
       withCredentials: true, // should be there
       credentials: 'include',
     }
@@ -41,7 +41,7 @@ function App() {
     //send req.cookies={token:} http://3.110.123.236:8080
     var config = {
       method: 'post',
-      url: 'http://localhost:7777/api/user/login',
+      url: 'https://pinoytravels.live/api/user/login',
       withCredentials: true, // should be there
       credentials: 'include',
       data: data
